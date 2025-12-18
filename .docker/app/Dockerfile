@@ -1,4 +1,4 @@
-FROM golang:1.24-alpine AS base
+FROM golang:1.25-alpine AS base
 
 RUN mkdir -m777 -p /opt/go
 RUN mkdir -m777 -p /.npm
@@ -19,7 +19,7 @@ RUN npm install --prefix /opt/app/web
 
 FROM base AS development
 
-RUN go install github.com/air-verse/air@latest
+RUN go install github.com/air-verse/air@v1.63.4
 
 COPY . .
 
